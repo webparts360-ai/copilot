@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microsoft Copilot Training Site</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f8fc;
+      color: #1f2937;
+    }
+    header {
+      background: linear-gradient(90deg, #0067b8, #4f46e5);
+      color: #fff;
+      padding: 2rem 1.5rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    section, article {
+      background: #fff;
+      border: 1px solid #dbe4f0;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.25rem;
+    }
+    .quiz button {
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      background: #0067b8;
+      color: #fff;
+    }
+    .quiz button:hover {
+      background: #00579c;
+    }
+    #quiz-result {
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      color: #5b6678;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111827;
+        color: #e5e7eb;
+      }
+      section, article {
+        background: #1f2937;
+        border-color: #374151;
+      }
+      footer {
+        color: #9ca3af;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Microsoft Copilot Training Site</h1>
+    <p>Learn prompting, safe usage, and practical workflows with Copilot.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Training Path</h2>
+      <div class="grid">
+        <article>
+          <h3>Module 1: Copilot Fundamentals</h3>
+          <ul>
+            <li>What Microsoft Copilot is</li>
+            <li>Where it integrates (M365, GitHub, Windows)</li>
+            <li>Responsible AI basics</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Module 2: Prompting Techniques</h3>
+          <ul>
+            <li>Use clear goals and context</li>
+            <li>Ask for structured outputs</li>
+            <li>Iterate and refine responses</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Module 3: Secure & Effective Use</h3>
+          <ul>
+            <li>Never share secrets in prompts</li>
+            <li>Validate AI-generated results</li>
+            <li>Use human review before publishing</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="quiz">
+      <h2>Quick Knowledge Check</h2>
+      <p><strong>Question:</strong> Which practice is best when using Copilot?</p>
+      <label><input type="radio" name="answer" value="a" /> Copy results directly to production</label><br />
+      <label><input type="radio" name="answer" value="b" /> Review and validate generated output</label><br />
+      <label><input type="radio" name="answer" value="c" /> Include credentials for better answers</label><br />
+      <button id="check-answer" type="button">Check answer</button>
+      <p id="quiz-result" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    Training content for internal onboarding and learning scenarios.
+  </footer>
+
+  <script>
+    document.getElementById("check-answer").addEventListener("click", function () {
+      var selected = document.querySelector('input[name="answer"]:checked');
+      var result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "Select an answer first.";
+        return;
+      }
+
+      result.textContent = selected.value === "b"
+        ? "Correct. Always review and validate Copilot output."
+        : "Not quite. The safest practice is to review and validate generated output.";
+    });
+  </script>
+</body>
+</html>
